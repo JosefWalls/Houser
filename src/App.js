@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import routes from "./routes"
+import {HashRouter, Link} from 'react-router-dom';
 import './App.css';
+import store from "./store"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      header: store.getState().header
+    }
+
+  }
+
+    editHeader = () => {
+
+    }
+    render(){
+      return (
+        <>
+        <h1>{this.state.header}</h1>
+        {routes}
+        </>
+      )
+    }
 }
 
-export default App;
+export default App
